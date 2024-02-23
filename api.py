@@ -11,7 +11,7 @@ import shap
 app = FastAPI()
 
 # Loading the model and data
-model = pickle.load(open('mlflow_model/model.pkl', 'rb'))
+model = pickle.load(open('model/model.pkl', 'rb'))
 data = pd.read_csv('test_df_sample.csv')
 data_train = pd.read_csv('train_df_sample.csv')
 
@@ -110,8 +110,3 @@ def shap_values():
     shap_val = explainer.shap_values(data_scaled.drop('SK_ID_CURR', axis=1))
     return {'shap_values_0': shap_val[0].tolist(),
             'shap_values_1': shap_val[1].tolist()}
-
-
-if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8000)
-    # uvicorn.run(app, host='127.0.0.1', port=8000)
