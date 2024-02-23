@@ -19,7 +19,7 @@ import uvicorn
 import shap
 
 # local
-#API_URL = "http://127.0.0.1:8000/"
+API_URL = "http://127.0.0.1:8000/"
 # deployment cloud
 #Later
 
@@ -27,6 +27,19 @@ import shap
 data_train = pd.read_csv('train_df_sample.csv')
 data_test = pd.read_csv('test_df_sample.csv')
 
+# Loading the model and data
+model = pickle.load(open('model/model.pkl', 'rb'))
+data = pd.read_csv('test_df_sample.csv')
+data_train = pd.read_csv('train_df_sample.csv')
+
+cols = data.select_dtypes(['float64']).columns
+data_scaled = data.copy()
+data_scaled[cols] = StandardScaler().fit_transform(data[cols])
+cols = data_train.select_dtypes(['float64']).columns
+data_train_scaled = data_train.copy()
+data_train_scaled[cols] = StandardScaler().fit_transform(data_train[cols])
+
+explainer = shap.TreeExplainer(model['classifier'])
 
 # Fonctions
 
