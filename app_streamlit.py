@@ -173,9 +173,9 @@ def jauge_score(proba):
         gauge={'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "black"},
                'bar': {'color': "DodgerBlue"},
                'steps': [
-                   {'range': [0, 20], 'color': "Green"},
-                   {'range': [20, 45], 'color': "LimeGreen"},
-                   {'range': [45, 53], 'color': "Orange"},
+                   {'range': [0, 53], 'color': "Green"},
+                   #{'range': [20, 45], 'color': "LimeGreen"},
+                   #{'range': [45, 53], 'color': "Orange"},
                    {'range': [53, 100], 'color': "Red"}],
                'threshold': {'line': {'color': "brown", 'width': 4}, 'thickness': 1, 'value': 53}}))
 
