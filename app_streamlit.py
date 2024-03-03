@@ -383,7 +383,8 @@ if page == "Interprétation locale":
         nb_features = st.slider('Nombre de variables à visualiser', 0, 20, 10)
         # Affichage du waterfall plot : shap local
         ax = shap.waterfall_plot(shap_val, max_display=nb_features, show=False)
-        st.pyplot(ax.figure)  # Use ax.figure to access the parent Figure object
+        st.pyplot(ax.figure)  # Use ax.figure to access the parent Figure objectpip install --upgrade jupyter nbformat
+
 
         with st.expander("Explication du graphique", expanded=False):
             st.caption("Ici sont affichées les caractéristiques influençant de manière locale la décision. "
