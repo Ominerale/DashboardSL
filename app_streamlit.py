@@ -3,7 +3,7 @@ import streamlit as st
 import shap
 import requests
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
-from sklearn.neighbors import NearestNeighbors  # Add this line
+from sklearn.neighbors import NearestNeighbors  
 import json
 import pandas as pd
 import numpy as np
